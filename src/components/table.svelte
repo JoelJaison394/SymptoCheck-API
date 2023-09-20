@@ -106,7 +106,6 @@
 							<td>{item.Symptom_0}</td>
 							<td>{item.Symptom_1}</td>
 							<td>{item.Symptom_2}</td>
-							<!-- Add more table cells for additional columns -->
 						</tr>
 					{/each}
 				{:else}
@@ -120,8 +119,6 @@
 		<p>No data available.</p>
 	{/if}
 </div>
-
-<!-- Pagination -->
 {#if totalPages > 1}
 	<div class="pagination">
 		<button on:click={() => changePage(currentPage - 1)} disabled={currentPage === 1}
@@ -135,10 +132,15 @@
 {/if}
 
 <style>
+    	* {
+		padding: 0;
+		margin: 0;
+		box-sizing: border-box;
+	}
 	/* Add your table styling here */
 	.table-container {
 		overflow-x: hidden;
-		height: 68vh; /* Enable horizontal scrolling on small screens */
+		height: auto; /* Enable horizontal scrolling on small screens */
 	}
 
 	table {
@@ -152,28 +154,32 @@
 
 	th,
 	td {
-		padding: 8px 12px;
+		padding: 10px 12px;
 		text-align: left;
 		border-bottom: 1px solid #ddd;
+        font-size: 18px;
 	}
 
 	th {
-		background-color: #f2f2f2;
+		background-color: #f2f2f244;
 	}
 
-	tbody tr:nth-child(even) {
+	/* tbody tr:nth-child(even) {
 		background-color: #f2f2f2;
 	}
+    tbody tr:nth-child(odd) {
+		background-color: #ffffff;
+	} */
 
 	tbody tr:hover {
-		background-color: #ddd;
+		background-color: #a0beff73;
 		transition: background-color 0.2s;
 	}
 
 	/* Pagination styles */
 	.pagination {
 		display: flex;
-		justify-content: space-between;
+		justify-content: space-around;
 		align-items: center;
 		margin-top: 16px;
 	}
@@ -187,7 +193,7 @@
 	}
 
 	.pagination button:disabled {
-		background-color: #ccc;
+		background-color: #c5a2f4;
 		cursor: not-allowed;
 	}
 

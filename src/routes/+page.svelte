@@ -1,67 +1,52 @@
 <script>
-    import DisplayTable from './DisplayTable.svelte';
+	import Table from '../components/table.svelte';
+	import Navbar from '../components/navbar.svelte';
+
+
+    let activeRoute = '/'
 </script>
 
-<main>
-    <div class="header">
-        <img src="https://res.cloudinary.com/dxraggwp4/image/upload/v1694971390/upw8e017nzd3zq80mydd.png" alt="MedCare Logo" class="logo">
-        <h1 class="centered-heading">SymptomCheck Data</h1>
-    </div>
-    
-    <!-- Render the DisplayTable component -->
-    <DisplayTable />
-    <div class="api-coming-soon">
-        <p class="api-text">API Coming Soon</p>
-    </div>
-    <!-- Other content of your page or component -->
-</main>
+<body>
+	<main>
+		<Navbar activeLink="{activeRoute}"/>
+		<!-- Render the DisplayTable component -->
+		<h1 class="centered-heading">SymptomCheck Data</h1>
+		<Table />
+		<div class="api-coming-soon">
+			<p class="api-text">API Coming Soon</p>
+		</div>
+		<!-- Other content of your page or component -->
+	</main>
+</body>
 
 <style>
-    /* Add your component's styles here */
-    *{
-        font-family: 'Poppins', sans-serif;
-    }
+	* {
+		padding: 0;
+		margin: 0;
+		box-sizing: border-box;
+	}
+	body {
+		padding: 0px;
+		margin: 0px;
+		box-sizing: border-box;
+        min-height: 100vh;
+	}
 
-    img {
-        height: 38px;
-    }
+	main {
+		position: relative;
+		background-image: url(../assets/symptocheck.png);
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		height: 100vh;
+		width: 100vw;
+		padding-top: 10px;
+	}
 
-    .header {
-        text-align: center;
-    }
-
-    .logo {
-        max-width: 100px; /* Adjust the size as needed */
-        margin: 0 auto; /* Center the logo horizontally */
-    }
-
-    .centered-heading {
-        text-align: center;
-        font-size: 28px;
-        line-height: 32px;
-    }
-
-
-    .api-coming-soon {
-        text-align: center;
-        margin-top: 20px; /* Adjust the margin as needed */
-        animation: pulse 2s infinite; /* Apply the animation */
-    }
-
-    .api-text {
-        font-weight: bold;
-        font-size: 18px; /* Adjust the font size as needed */
-    }
-
-    @keyframes pulse {
-        0% {
-            opacity: 0;
-        }
-        50% {
-            opacity: 1;
-        }
-        100% {
-            opacity: 0;
-        }
-    }
+	.centered-heading {
+		text-align: center;
+		color: #ffff;
+		line-height: 32px;
+		padding: 5px;
+	}
 </style>
